@@ -75,7 +75,7 @@ const Courses = () => {
                 </div>
                 <Button 
                   className="w-full"
-                  onClick={() => window.open('https://wa.me/5511999999999?text=Olá! Gostaria de mais informações sobre o curso de ' + course.title, '_blank')}
+                  onClick={() => window.open('https://wa.me/559899047904=Olá! Gostaria de mais informações sobre o curso de ' + course.title, '_blank')}
                 >
                   Saiba Mais
                 </Button>
