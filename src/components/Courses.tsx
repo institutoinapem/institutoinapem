@@ -75,7 +75,7 @@ const Courses = () => {
                 </div>
                 <Button 
                   className="w-full"
-                  onClick={() => window.open('https://wa.me/559899047904=Olá! Gostaria de mais informações sobre o curso de ' + course.title, '_blank')}
+                  onClick={() => window.open('https://wa.me/559899047904?text=Olá! Gostaria de mais informações sobre o curso de ' + course.title, '_blank')}
                 >
                   Saiba Mais
                 </Button>
@@ -92,7 +92,7 @@ const Courses = () => {
             size="lg"
             variant="outline"
             className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground"
-            onClick={() => window.open('https://wa.me/5511999999999?text=Olá! Gostaria de mais informações sobre os cursos de pós-graduação', '_blank')}
+            onClick={() => window.open('https://wa.me/559899047904?text=Olá! Gostaria de mais informações sobre os cursos de pós-graduação', '_blank')}
           >
             Entre em Contato para Mais Informações
           </Button>
