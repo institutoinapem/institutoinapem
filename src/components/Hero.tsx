@@ -21,7 +21,7 @@ const Hero = () => {
             <Button 
               size="lg"
               className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-elegant hover:shadow-xl transition-all text-lg px-8 py-6 group"
-              onClick={() => window.open('https://wa.me/5511999999999', '_blank')}
+              onClick={() => window.open('https://wa.me/559899047904', '_blank')}
             >
               <MessageCircle className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
               Entre em Contato
