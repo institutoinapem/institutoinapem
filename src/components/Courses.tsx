@@ -94,7 +94,7 @@ const Courses = () => {
             className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground"
             onClick={() => window.open('https://wa.me/559899047904?text=Olá! Gostaria de mais informações sobre os cursos de pós-graduação', '_blank')}
           >
-            Entre em Contato para Mais Informações
+            Entre em Contato
           </Button>
         </div>
       </div>
