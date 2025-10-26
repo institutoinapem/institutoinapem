@@ -13,15 +13,15 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-center gap-6 text-sm text-muted-foreground">
             <div className="flex items-center justify-center gap-2">
               <Mail className="h-4 w-4 text-primary" />
-              <span>contato@inapem.com.br</span>
+              <span>institutoinapen99@gmail.com</span>
             </div>
             <div className="flex items-center justify-center gap-2">
               <Phone className="h-4 w-4 text-primary" />
-              <span>(11) 99999-9999</span>
+              <span>(98) 9904-7904</span>
             </div>
             <div className="flex items-center justify-center gap-2">
               <MapPin className="h-4 w-4 text-primary" />
-              <span>São Paulo, SP</span>
+              <span>São Luís, MA</span>
             </div>
           </div>
 
