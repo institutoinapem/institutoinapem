@@ -30,7 +30,7 @@ const Navbar = () => {
             <Button 
               size="lg"
               className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg hover:shadow-xl transition-all"
-              onClick={() => window.open('https://wa.me/5511999999999', '_blank')}
+              onClick={() => window.open('https://wa.me/559899047904', '_blank')}
             >
               <MessageCircle className="h-4 w-4" />
               Fale Conosco
