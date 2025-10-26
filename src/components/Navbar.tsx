@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { MessageCircle, GraduationCap } from "lucide-react";
 import logo from "@/assets/logo-inapem.png";
 
 const Navbar = () => {
@@ -14,6 +15,9 @@ const Navbar = () => {
             <a href="#sobre" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
               Sobre
             </a>
+            <a href="#cursos" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
+              Cursos
+            </a>
             <a href="#missao" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
               Nossa Missão
             </a>
@@ -22,13 +26,26 @@ const Navbar = () => {
             </a>
           </div>
 
-          <Button 
-            size="lg"
-            className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg hover:shadow-xl transition-all"
-            onClick={() => window.open('https://wa.me/5511999999999', '_blank')}
-          >
-            Fale Conosco
-          </Button>
+          <div className="flex items-center gap-3">
+            <Button 
+              size="lg"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg hover:shadow-xl transition-all"
+              onClick={() => window.open('https://wa.me/5511999999999', '_blank')}
+            >
+              <MessageCircle className="h-4 w-4" />
+              Fale Conosco
+            </Button>
+            
+            <Button 
+              size="lg"
+              variant="outline"
+              className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all"
+              onClick={() => window.open('https://portal-aluno-inapem.com.br', '_blank')}
+            >
+              <GraduationCap className="h-4 w-4" />
+              Portal do Aluno
+            </Button>
+          </div>
         </div>
       </div>
     </nav>
