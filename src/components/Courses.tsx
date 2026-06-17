@@ -4,31 +4,24 @@ import { GraduationCap, Clock, BookOpen } from "lucide-react";
 
 const courses = [
   {
-    title: "Especialização em Neuropsicopedagogia Clínica",
+    title: "Especialização em Neuropsicopedagogia Clínica e Institucional",
     duration: "18 meses",
-    workload: "600 horas",
-    value: "R$ 299,90/mês",
+    workload: "750 horas",
+    value: "R$ 180/mês",
     description: "Formação completa para atuar no diagnóstico e intervenção de dificuldades de aprendizagem com abordagem neuropsicopedagógica."
   },
   {
-    title: "Pós-Graduação em Educação Especial e Inclusiva",
-    duration: "12 meses",
-    workload: "420 horas",
-    value: "R$ 249,90/mês",
-    description: "Capacitação para profissionais que desejam trabalhar com educação inclusiva e atendimento especializado."
-  },
-  {
-    title: "Neuropsicopedagogia Institucional",
+    title: "Especialização em Analise Comportamental aplicada ao Autismo (ABA)",
     duration: "18 meses",
-    workload: "600 horas",
-    value: "R$ 299,90/mês",
+    workload: "510 horas",
+    value: "R$ 180/mês",
     description: "Formação voltada para atuação em instituições educacionais, com foco em processos de aprendizagem organizacional."
   },
   {
-    title: "Psicopedagogia Clínica e Institucional",
+    title: "Especializaçao em Educação Especial e Inclusiva",
     duration: "18 meses",
-    workload: "600 horas",
-    value: "R$ 279,90/mês",
+    workload: "420 horas",
+    value: "R$ 180/mês",
     description: "Curso abrangente que prepara para atuação tanto em clínicas quanto em instituições educacionais."
   }
 ];
