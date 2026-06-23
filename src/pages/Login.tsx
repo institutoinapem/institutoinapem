@@ -29,14 +29,14 @@ export default function Login() {
         {/* Logotipo da Instituição */}
         <div className="flex justify-center mb-6">
           <img 
-            src="/logo_inapem.jpg" 
-            alt="Logo INAPEM" 
+            src="/logo-inapem.png" 
+            alt="logo inapem" 
             className="h-28 w-auto object-contain mix-blend-multiply"
           />
         </div>
         
         <h2 className="text-2xl font-bold tracking-tight text-[#2d3127]">
-          Portal do Aluno
+          Faça seu Login
         </h2>
         <p className="mt-2 text-sm text-[#5d6652]">
           Insira suas credenciais para acessar sua área de estudos.
@@ -50,7 +50,7 @@ export default function Login() {
             {/* Campo de E-mail */}
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-[#4a5240]">
-                E-mail institucional
+                E-mail
               </label>
               <div className="mt-1 relative rounded-md shadow-sm">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-[#889966]">
