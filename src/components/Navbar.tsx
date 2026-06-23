@@ -1,8 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { MessageCircle, GraduationCap } from "lucide-react";
 import logo from "@/assets/logo-inapem.png";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
       <div className="container mx-auto px-4">
@@ -40,7 +43,7 @@ const Navbar = () => {
               size="lg"
               variant="outline"
               className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all"
-              onClick={() => window.location.href = '/login'}
+              onClick={() => navigate('/login')}
             >
               <GraduationCap className="h-4 w-4" />
               Matricule-se
