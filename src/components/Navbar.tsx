@@ -40,10 +40,10 @@ const Navbar = () => {
               size="lg"
               variant="outline"
               className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all"
-              onClick={() => window.open('https://portaldoaluno.inapem.com.br', '_blank')}
+              onClick={() => window.location.href = '/login'}
             >
               <GraduationCap className="h-4 w-4" />
-              Portal do Aluno
+              Matricule-se
             </Button>
           </div>
         </div>
