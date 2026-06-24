@@ -69,14 +69,6 @@ export default function Login() {
       </div>
 
       <div className="sm:mx-auto sm:w-full sm:max-w-md text-center px-4">
-        <div className="flex justify-center mb-6">
-          <img 
-            src="/logo-inapem.png" 
-            alt="logo inapem" 
-            className="h-28 w-auto object-contain mix-blend-multiply"
-          />
-        </div>
-        
         <h2 className="text-2xl font-bold tracking-tight text-[#2d3127]">
           Faça seu Login
         </h2>
@@ -159,7 +151,7 @@ export default function Login() {
                 disabled={loading}
                 className="w-full flex justify-center py-2.5 px-4 border border-transparent rounded-lg shadow-sm text-sm font-semibold text-white bg-[#889966] hover:bg-[#6e7d50] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#889966] transition-all disabled:opacity-50"
               >
-                {loading ? 'Entrando...' : 'Entrar no Portal'}
+                {loading ? 'Entrando...' : 'Entrar'}
               </button>
             </div>
           </form>
