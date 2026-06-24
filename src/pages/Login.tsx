@@ -1,24 +1,67 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useSignIn, useAuth } from '@clerk/clerk-react'; // Adicionado useAuth
 import { Eye, EyeOff, Lock, Mail, ArrowLeft } from 'lucide-react';
+import { supabase } from '../lib/supabaseClient'; // Adicionado o cliente do Supabase
 
 export default function Login() {
+  const { isLoaded, signIn, setActive } = useSignIn();
+  const { getToken } = useAuth(); // Instanciado o hook de autenticação
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Adicione a lógica de autenticação aqui
-    console.log('Login solicitado:', { email, password });
+    if (!isLoaded) return;
+
+    setLoading(true);
+    setError('');
+
+    try {
+      const result = await signIn.create({
+        identifier: email,
+        password: password,
+      });
+
+      if (result.status === 'complete') {
+        // 1. Ativa a sessão do Clerk
+        await setActive({ session: result.createdSessionId });
+        
+        // 2. Busca e repassa o token para o Supabase (CORREÇÃO CRUCIAL)
+        const supabaseToken = await getToken({ template: 'supabase' });
+        if (supabaseToken) {
+          await supabase.auth.setSession({
+            access_token: supabaseToken,
+            refresh_token: '',
+          });
+        }
+
+        // 3. Redireciona com segurança
+        navigate('/dashboard'); 
+      } else {
+        console.error(result);
+        setError('Verifique suas credenciais ou confirme seu e-mail.');
+      }
+    } catch (err: any) {
+      setError(err.errors?.[0]?.message || 'E-mail ou senha incorretos.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <div className="min-h-screen bg-[#fcfdfa] flex flex-col justify-center py-12 sm:px-6 lg:px-8 font-sans antialiased">
-      {/* Botão de Voltar para a Home */}
       <div className="absolute top-4 left-4">
         <button 
-          onClick={() => window.location.href = '/'}
-          className="flex items-center gap-2 text-sm text-[#4a5240] hover:text-[#889966] transition-colors font-medium"
+          onClick={() => navigate('/')}
+          disabled={loading}
+          className="flex items-center gap-2 text-sm text-[#4a5240] hover:text-[#889966] transition-colors font-medium disabled:opacity-50"
         >
           <ArrowLeft size={16} />
           Voltar ao início
@@ -26,7 +69,6 @@ export default function Login() {
       </div>
 
       <div className="sm:mx-auto sm:w-full sm:max-w-md text-center px-4">
-        {/* Logotipo da Instituição */}
         <div className="flex justify-center mb-6">
           <img 
             src="/logo-inapem.png" 
@@ -45,9 +87,14 @@ export default function Login() {
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md px-4">
         <div className="bg-white py-8 px-4 shadow-sm border border-[#e2e6dc] rounded-xl sm:px-10">
+          
+          {error && (
+            <div className="mb-4 bg-red-50 border border-red-200 text-red-600 text-sm p-3 rounded-lg font-medium">
+              {error}
+            </div>
+          )}
+
           <form className="space-y-6" onSubmit={handleSubmit}>
-            
-            {/* Campo de E-mail */}
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-[#4a5240]">
                 E-mail
@@ -58,10 +105,10 @@ export default function Login() {
                 </div>
                 <input
                   id="email"
-                  name="email"
                   type="email"
                   autoComplete="email"
                   required
+                  disabled={loading}
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="block w-full pl-10 pr-3 py-2.5 border border-[#c1c9b7] rounded-lg text-[#2d3127] placeholder-[#a2ab97] focus:outline-none focus:ring-2 focus:ring-[#889966] focus:border-[#889966] transition-all text-sm bg-[#fafbfa]"
@@ -70,7 +117,6 @@ export default function Login() {
               </div>
             </div>
 
-            {/* Campo de Senha */}
             <div>
               <div className="flex items-center justify-between">
                 <label htmlFor="password" className="block text-sm font-medium text-[#4a5240]">
@@ -88,10 +134,10 @@ export default function Login() {
                 </div>
                 <input
                   id="password"
-                  name="password"
                   type={showPassword ? 'text' : 'password'}
                   autoComplete="current-password"
                   required
+                  disabled={loading}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   className="block w-full pl-10 pr-10 py-2.5 border border-[#c1c9b7] rounded-lg text-[#2d3127] placeholder-[#a2ab97] focus:outline-none focus:ring-2 focus:ring-[#889966] focus:border-[#889966] transition-all text-sm bg-[#fafbfa]"
@@ -107,18 +153,30 @@ export default function Login() {
               </div>
             </div>
 
-            {/* Botão de Enviar */}
             <div>
               <button
                 type="submit"
-                className="w-full flex justify-center py-2.5 px-4 border border-transparent rounded-lg shadow-sm text-sm font-semibold text-white bg-[#889966] hover:bg-[#6e7d50] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#889966] transition-all"
+                disabled={loading}
+                className="w-full flex justify-center py-2.5 px-4 border border-transparent rounded-lg shadow-sm text-sm font-semibold text-white bg-[#889966] hover:bg-[#6e7d50] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#889966] transition-all disabled:opacity-50"
               >
-                Entrar no Portal
+                {loading ? 'Entrando...' : 'Entrar no Portal'}
               </button>
             </div>
           </form>
 
-          {/* Rodapé interno opcional */}
+          <div className="mt-6 pt-2 text-center">
+            <p className="text-sm text-[#5d6652]">
+              Não tem uma conta?{' '}
+              <button
+                onClick={() => navigate('/cadastro')}
+                disabled={loading}
+                className="font-semibold text-[#889966] hover:text-[#6e7d50] transition-colors inline-flex items-center gap-1 focus:outline-none focus:underline disabled:opacity-50"
+              >
+                Cadastre-se
+              </button>
+            </p>
+          </div>
+
           <div className="mt-6 border-t border-[#e2e6dc] pt-4 text-center">
             <p className="text-xs text-[#a2ab97]">
               Suporte técnico: suporte@inapem.com.br
