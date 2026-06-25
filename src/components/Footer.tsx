@@ -3,20 +3,20 @@ import { Mail, Phone, Instagram, Youtube } from "lucide-react";
 
 const ContactBar = () => {
   return (
-    /* Mudei py-6 para py-12 para dar mais altura e respiro para o bloco esmeralda */
-    <div className="w-full bg-emerald-600 dark:bg-emerald-700 text-white py-12 px-6 shadow-md">
+    /* Aplicado o verde exato #689A4C através da sintaxe customizada do Tailwind */
+    <div className="w-full bg-[#689A4C] text-white py-12 px-6 shadow-md">
       <div className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
         
         {/* Esquerda: Contato */}
         <div className="flex items-center gap-2 min-w-[200px] justify-center md:justify-start">
-          <Phone className="h-5 w-5 text-emerald-100" />
+          <Phone className="h-5 w-5 opacity-90" />
           <span className="text-sm font-medium tracking-wide">
             Contato:{" "}
             <a 
               href="https://wa.me/5598988136947" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="hover:underline hover:text-emerald-200 transition-colors"
+              className="hover:underline opacity-90 hover:opacity-100 transition-opacity"
             >
               (98) 98813-6947
             </a>
