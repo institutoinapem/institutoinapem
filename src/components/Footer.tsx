@@ -3,7 +3,8 @@ import { Mail, Phone, Instagram, Youtube } from "lucide-react";
 
 const ContactBar = () => {
   return (
-    <div className="w-full bg-emerald-600 dark:bg-emerald-700 text-white py-6 px-6 shadow-md">
+    /* Mudei py-6 para py-12 para dar mais altura e respiro para o bloco esmeralda */
+    <div className="w-full bg-emerald-600 dark:bg-emerald-700 text-white py-12 px-6 shadow-md">
       <div className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
         
         {/* Esquerda: Contato */}
