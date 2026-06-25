@@ -1,20 +1,20 @@
-import { Brain, BookOpen, Users } from "lucide-react";
+import { Brain, BookOpen, Puzzle } from "lucide-react";
 
 const features = [
   {
     icon: Brain,
     title: "Neuropsicopedagogia",
-    description: "Especialização em processos de aprendizagem e desenvolvimento cognitivo"
+    description: "Especialização completa em Neuropsicopedagogia Clinica e Institucional"
   },
   {
     icon: BookOpen,
-    title: "Educação Especial",
-    description: "Formação inclusiva e adaptada às necessidades individuais"
+    title: "Educação Especial e Inclusiva",
+    description: "Especialização completa abordando práticas inclusivas e treinamento intensivo."
   },
   {
-    icon: Users,
-    title: "Atendimento Personalizado",
-    description: "Acompanhamento individualizado para cada estudante"
+    icon: Puzzle,
+    title: "Especialização - ABA",
+    description: "Formação prática em Análise do Comportamento Aplicada com foco no Transtorno do Espectro Autista (TEA)."
   }
 ];
 

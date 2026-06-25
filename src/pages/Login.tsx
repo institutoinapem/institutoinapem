@@ -171,7 +171,7 @@ export default function Login() {
 
           <div className="mt-6 border-t border-[#e2e6dc] pt-4 text-center">
             <p className="text-xs text-[#a2ab97]">
-              Suporte técnico: suporte@inapem.com.br
+              Suporte técnico: institutoinapen@institutoinapen.org
             </p>
           </div>
         </div>

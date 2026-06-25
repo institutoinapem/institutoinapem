@@ -112,14 +112,6 @@ export default function Cadastro() {
       </div>
 
       <div className="sm:mx-auto sm:w-full sm:max-w-md text-center px-4">
-        <div className="flex justify-center mb-6">
-          <img 
-            src="/logo-inapem.png" 
-            alt="logo inapem" 
-            className="h-28 w-auto object-contain mix-blend-multiply"
-          />
-        </div>
-        
         <h2 className="text-2xl font-bold tracking-tight text-[#2d3127]">
           {step === 'form' ? 'Crie sua conta' : 'Verifique seu e-mail'}
         </h2>
@@ -285,7 +277,7 @@ export default function Cadastro() {
 
           <div className="mt-6 border-t border-[#e2e6dc] pt-4 text-center">
             <p className="text-xs text-[#a2ab97]">
-              Suporte técnico: suporte@inapem.com.br
+              Suporte técnico: institutoinapen@institutoinapen.org
             </p>
           </div>
         </div>
