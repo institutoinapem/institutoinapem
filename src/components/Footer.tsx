@@ -1,67 +1,73 @@
+import logo from "../assets/logo-inapem.png";
 import { Mail, Phone, Instagram, Youtube } from "lucide-react";
 
-const LinksPage = () => {
+const ContactBar = () => {
   return (
-    <div className="min-h-screen bg-background text-foreground flex flex-col justify-between py-12 px-4">
-      {/* Container Centralizado dos Ícones */}
-      <div className="w-full max-w-md mx-auto flex-grow flex flex-col justify-center items-center">
+    <div className="w-full bg-emerald-600 dark:bg-emerald-700 text-white py-6 px-6 shadow-md">
+      <div className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
         
-        {/* Linha Horizontal de Botões Clicáveis */}
-        <div className="flex flex-row flex-wrap justify-center gap-4">
-          
-          {/* Botão Instagram */}
+        {/* Esquerda: Contato */}
+        <div className="flex items-center gap-2 min-w-[200px] justify-center md:justify-start">
+          <Phone className="h-5 w-5 text-emerald-100" />
+          <span className="text-sm font-medium tracking-wide">
+            Contato:{" "}
+            <a 
+              href="https://wa.me/5598988136947" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="hover:underline hover:text-emerald-200 transition-colors"
+            >
+              (98) 98813-6947
+            </a>
+          </span>
+        </div>
+
+        {/* Centro: Ícones de Redes Sociais e E-mail */}
+        <div className="flex items-center justify-center gap-4 flex-grow">
+          {/* Instagram */}
           <a
             href="https://instagram.com/institutoinapem"
             target="_blank"
             rel="noopener noreferrer"
             title="Instagram"
-            className="p-4 bg-card hover:bg-primary/10 border border-border hover:border-primary rounded-xl shadow-sm transition-all duration-300 group"
+            className="p-2.5 bg-white/10 hover:bg-white/20 border border-white/20 rounded-xl transition-all duration-300 group"
           >
-            <Instagram className="h-6 w-6 text-primary group-hover:scale-110 transition-transform" />
+            <Instagram className="h-5 w-5 text-white group-hover:scale-110 transition-transform" />
           </a>
 
-          {/* Botão WhatsApp */}
-          <a
-            href="https://wa.me/5598988136947"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="WhatsApp"
-            className="p-4 bg-card hover:bg-primary/10 border border-border hover:border-primary rounded-xl shadow-sm transition-all duration-300 group"
-          >
-            <Phone className="h-6 w-6 text-primary group-hover:scale-110 transition-transform" />
-          </a>
-
-          {/* Botão E-mail */}
+          {/* E-mail */}
           <a
             href="mailto:institutoinapen99@gmail.com"
             title="E-mail"
-            className="p-4 bg-card hover:bg-primary/10 border border-border hover:border-primary rounded-xl shadow-sm transition-all duration-300 group"
+            className="p-2.5 bg-white/10 hover:bg-white/20 border border-white/20 rounded-xl transition-all duration-300 group"
           >
-            <Mail className="h-6 w-6 text-primary group-hover:scale-110 transition-transform" />
+            <Mail className="h-5 w-5 text-white group-hover:scale-110 transition-transform" />
           </a>
 
-          {/* Botão YouTube */}
+          {/* YouTube */}
           <a
             href="https://www.youtube.com/@institutoinapemoficial"
             target="_blank"
             rel="noopener noreferrer"
             title="YouTube"
-            className="p-4 bg-card hover:bg-primary/10 border border-border hover:border-primary rounded-xl shadow-sm transition-all duration-300 group"
+            className="p-2.5 bg-white/10 hover:bg-white/20 border border-white/20 rounded-xl transition-all duration-300 group"
           >
-            <Youtube className="h-6 w-6 text-primary group-hover:scale-110 transition-transform" />
+            <Youtube className="h-5 w-5 text-white group-hover:scale-110 transition-transform" />
           </a>
-
         </div>
-      </div>
 
-      {/* Rodapé Simplificado */}
-      <div className="w-full text-center mt-12 pt-6 border-t border-border/40">
-        <p className="text-xs text-muted-foreground">
-          © 2026 INAPEM. Todos os direitos reservados.
-        </p>
+        {/* Direita: Logo do Instituto */}
+        <div className="flex items-center justify-center md:justify-end min-w-[200px]">
+          <img 
+            src={logo} 
+            alt="INAPEM" 
+            className="h-10 w-auto object-contain" 
+          />
+        </div>
+
       </div>
     </div>
   );
 };
 
-export default LinksPage;
+export default ContactBar;
