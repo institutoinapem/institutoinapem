@@ -209,7 +209,7 @@ export default function Cadastro() {
                   disabled={loading}
                   className="w-full flex justify-center py-2.5 px-4 border border-transparent rounded-lg shadow-sm text-sm font-semibold text-white bg-[#889966] hover:bg-[#6e7d50] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#889966] transition-all disabled:opacity-50"
                 >
-                  {loading ? 'Processando...' : 'Próxima etapa'}
+                  {loading ? 'Processando...' : 'Cadastrar'}
                 </button>
               </div>
 
